@@ -1,0 +1,20 @@
+version: '3.9'
+
+services:
+  mysql_db:
+    build: ./mysql
+    container_name: mysql 
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: legalhelperdb
+      MYSQL_DATABASE: legalhelperdb
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: legalhelperdb
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./database:/var/lib/mysql
+      
+volumes:
+  mysql-data:
+
