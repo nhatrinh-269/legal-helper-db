@@ -35,12 +35,12 @@ CREATE TABLE Feedback (
 
 -- 4. Service packages
 CREATE TABLE ServicePackages (
-  package_id         INT             AUTO_INCREMENT PRIMARY KEY,
-  package_name       VARCHAR(100)    NOT NULL,
-  description        TEXT,
-  price              DECIMAL(12,2)   NOT NULL,
-  duration_days      INT             NOT NULL,      -- validity period in days
-  question_limit     INT             NOT NULL       -- max questions per day
+  package_id      INT             AUTO_INCREMENT PRIMARY KEY,
+  package_name    VARCHAR(100)    NOT NULL,
+  description     TEXT,
+  price           DECIMAL(12,2)   NOT NULL,    
+  duration_days   INT             NOT NULL,    
+  question_limit  INT             NOT NULL     
 );
 
 -- 5. Subscriptions
@@ -68,16 +68,6 @@ CREATE TABLE Payments (
   FOREIGN KEY (package_id) REFERENCES ServicePackages(package_id) ON DELETE SET NULL
 );
 
--- 7. Access logs
-CREATE TABLE AccessLogs (
-  log_id             INT             AUTO_INCREMENT PRIMARY KEY,
-  user_id            INT             NOT NULL,
-  action             ENUM('login','chat','feedback','payment') NOT NULL,
-  timestamp          DATETIME        NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  details            TEXT,
-  FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE
-);
-
 -- 8. Daily usage quota
 CREATE TABLE UsageQuota (
   quota_id           INT             AUTO_INCREMENT PRIMARY KEY,
@@ -88,3 +78,23 @@ CREATE TABLE UsageQuota (
   FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE,
   UNIQUE KEY uq_user_date (user_id, usage_date)
 );
+
+INSERT INTO Users (full_name, email, password_hash, role, status)
+VALUES ('Admin Root', 'admin@example.com', '12345', 'admin', 'active');
+
+INSERT INTO ServicePackages (package_name, description, price, duration_days, question_limit) VALUES
+  ('Free',
+   '✔ Hoi dap luat co ban\n✔ Xu ly van ban luat gioi han',
+   0.00,
+   100,
+   10),
+  ('Pro',
+   '✔ Mo rong pham vi luat\n✔ 50 cau hoi/ngay\n✔ Tra loi chinh xac hon\n✔ Ho tro email 24h',
+   99000.00,
+   30,
+   50),
+  ('Premium',
+   '✔ Tang gioi han len 200 cau hoi\n✔ Phan tich, xu ly phap ly\n✔ Ho tro chuyen sau',
+   199000.00,
+   30,
+   200);
