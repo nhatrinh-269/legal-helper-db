@@ -84,17 +84,17 @@ VALUES ('Admin Root', 'admin@example.com', '12345', 'admin', 'active');
 
 INSERT INTO ServicePackages (package_name, description, price, duration_days, question_limit) VALUES
   ('Free',
-   '✔ Hoi dap luat co ban\n✔ Xu ly van ban luat gioi han',
+   'Hoi dap luat co ban\n✔ Xu ly van ban luat gioi han',
    0.00,
    100,
    10),
   ('Pro',
-   '✔ Mo rong pham vi luat\n✔ 50 cau hoi/ngay\n✔ Tra loi chinh xac hon\n✔ Ho tro email 24h',
+   'Mo rong pham vi luat\n✔ 50 cau hoi/ngay\n✔ Tra loi chinh xac hon\n✔ Ho tro email 24h',
    99000.00,
    30,
    50),
   ('Premium',
-   '✔ Tang gioi han len 200 cau hoi\n✔ Phan tich, xu ly phap ly\n✔ Ho tro chuyen sau',
+   'Tang gioi han len 200 cau hoi\n✔ Phan tich, xu ly phap ly\n✔ Ho tro chuyen sau',
    199000.00,
    30,
    200);
