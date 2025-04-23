@@ -84,10 +84,12 @@ INSERT INTO Users (full_name, email, password_hash, role, status)
 VALUES ('Admin Root', 'admin@example.com', '12345', 'admin', 'active');
 
 -- Gói dịch vụ
-INSERT INTO ServicePackages (package_name, description, price, duration_days, question_limit) VALUES
-  ('Free',    'Hoi dap luat co ban\n Xu ly van ban luat gioi han',                    0.00,  100, 10),
-  ('Pro',     'Mo rong pham vi luat\n 50 cau hoi/ngay\n Tra loi chinh xac hon',     99000.00, 30, 50),
-  ('Premium', 'Tang gioi han len 200 cau hoi\n Phan tich, xu ly phap ly',           199000.00, 30, 200);
+INSERT INTO ServicePackages (package_name, description, price, duration_days, question_limit)
+VALUES
+  ('free',    'Goi mien phi voi 10 cau hoi ve phap luat co ban, ho tro tra cuu van ban gioi han',                0.00,      100, 10),
+  ('pro',     'Goi nang cao mo rong pham vi cau hoi, 50 cau hoi moi ngay, tra loi nhanh va chinh xac hon',      99000.00,   30, 50),
+  ('premium', 'Goi cao cap ho tro den 200 cau hoi moi thang, phan tich va xu ly tinh huong phap ly chuyen sau', 199000.00,  30, 200),
+  ('enterprise', 'Goi doanh nghiep voi giai phap API rieng, tuy chinh theo nhu cau va trien khai he thong rieng biet', 0.00, 365, 0);
 
 -- Thêm 20 user
 INSERT INTO Users (full_name, email, password_hash, role, status) VALUES 
